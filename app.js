@@ -16,8 +16,21 @@ input.addEventListener('keyup', e => {
         else {
             const note = { description: input.value, status: false };
             data.push(note);
+            drawNote(note);
+            
             input.value = '';
         }
     } 
 
 });
+
+function drawNote(note) {
+    let elem = document.createElement('p');
+    elem.className = 'note';
+    
+    if (!note.status) {
+        elem.innerHTML = `<input type="checkbox" id="sel"> ${note.description}`;
+    }
+
+    container.append(elem);
+}
