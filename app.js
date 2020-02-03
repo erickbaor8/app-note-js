@@ -30,6 +30,11 @@ container.addEventListener('click', event => {
         const note = event.target.parentElement;
         deleteNote(note);
     }
+
+    if (event.target.classList.contains('note')) {
+        const note = event.target;
+        completed(note);
+    }
 });
 
 function drawNote(note) {
@@ -38,7 +43,7 @@ function drawNote(note) {
     elem.id = note.id;
     
     if (!note.checked) {
-        elem.innerHTML = `<input type="checkbox" id="sel" class="sel"> ${note.description} <span class="flag">x</span>`;
+        elem.innerHTML = `${note.description} <span class="flag">x</span>`;
     }
 
     container.append(elem);
@@ -60,5 +65,20 @@ function deleteNote(note) {
     data = data.filter(note => note.id !== Number(id));
     
     note.remove();
+    input.focus();
+}
+
+function completed(note) {
+    const idx = data.findIndex(item => item.id === Number(note.id));
+    data[idx].checked = !data[idx].checked;
+
+    if (data[idx].checked) {
+        note.classList.add('done');
+        note.firstElementChild.checked = true;
+    } else {
+        note.classList.remove('done');
+        note.firstElementChild.checked = false;
+    }
+
     input.focus();
 }
