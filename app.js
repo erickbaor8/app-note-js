@@ -58,12 +58,12 @@ function addNote(value, index) {
 
     data.push(note);
     drawNote(note);
+    input.focus();
 }
 
 function deleteNote(note) {
     const id = note.id;
     data = data.filter(note => note.id !== Number(id));
-    
     note.remove();
     input.focus();
 }
@@ -74,10 +74,8 @@ function completed(note) {
 
     if (data[idx].checked) {
         note.classList.add('done');
-        note.firstElementChild.checked = true;
     } else {
         note.classList.remove('done');
-        note.firstElementChild.checked = false;
     }
 
     input.focus();
