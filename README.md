@@ -9,8 +9,9 @@
 
 ## Screenshots
 
-|                |               |
-| -------------- | --------------|
-| ![Img1](1.png) | ![Img2](2.png)|
-| ![Img3](3.png) | ![Img4](4.png)|
-| ![Img5](5.png) | ![Img6](6.png)|
+![Img1](1.png) 
+![Img2](2.png)
+![Img3](3.png) 
+![Img4](4.png)
+![Img5](5.png)
+![Img6](6.png)
