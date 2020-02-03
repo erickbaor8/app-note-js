@@ -14,7 +14,7 @@ input.addEventListener('keyup', e => {
         else if (input.value.length < 10)
             alert('You must have at least 10 characters!!');
         else {
-            drawNote(addNote(input.value, index));
+            addNote(input.value.trim(), index);
 
             input.value = '';
             index++;
@@ -44,5 +44,5 @@ function addNote(value, index) {
 
     data.push(note);
 
-    return data[data.length - 1];
+    drawNote(note);
 }
