@@ -23,6 +23,15 @@ input.addEventListener('keyup', e => {
 
 });
 
+container.addEventListener('click', event => {
+    event.preventDefault();
+
+    if (event.target.classList.contains('flag')) {
+        const note = event.target.parentElement;
+        deleteNote(note);
+    }
+});
+
 function drawNote(note) {
     let elem = document.createElement('p');
     elem.className = 'note';
@@ -43,6 +52,13 @@ function addNote(value, index) {
     };
 
     data.push(note);
-
     drawNote(note);
+}
+
+function deleteNote(note) {
+    const id = note.id;
+    data = data.filter(note => note.id !== Number(id));
+    
+    note.remove();
+    input.focus();
 }
