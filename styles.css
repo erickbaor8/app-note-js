@@ -23,14 +23,7 @@ body {
     padding-bottom: 20px;
 }
 
-.container-content {
-    width: 100%;
-    height: 100vh;
-}
-
-.container-action {
-    width: 100%;
-}
+.container-content, .container-action { width: 100%; }
 
 .inputNote {
     width: 100%;
@@ -42,20 +35,18 @@ body {
     padding: 5px;
 }
 
-.inputNote:focus {
-    border-bottom: 2px solid #F79F1F;
-}
-
 .flag {
     color: red;
     font-weight: 700;
     font-size: 20px;
     float: right;
-}
+} 
 
-.flag:hover {
-    cursor: pointer;
-}
+.inputNote:focus { border-bottom: 2px solid #F79F1F; }
+
+.done { text-decoration: line-through; }
+
+.flag:hover, .note:hover { cursor: pointer; }
 
 @media screen and (min-width: 600px) {
     .container {
