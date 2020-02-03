@@ -46,6 +46,17 @@ body {
     border-bottom: 2px solid #F79F1F;
 }
 
+.flag {
+    color: red;
+    font-weight: 700;
+    font-size: 20px;
+    float: right;
+}
+
+.flag:hover {
+    cursor: pointer;
+}
+
 @media screen and (min-width: 600px) {
     .container {
         width: 500px;

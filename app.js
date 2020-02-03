@@ -2,8 +2,8 @@
 
 let input = document.querySelector('#inputNote');
 let container = document.querySelector('#container-content');
-let checkbox = document.querySelector('#sel');
 let data = [];
+let index = 1;
 
 input.addEventListener('keyup', e => {
     e.preventDefault();
@@ -14,11 +14,10 @@ input.addEventListener('keyup', e => {
         else if (input.value.length < 10)
             alert('You must have at least 10 characters!!');
         else {
-            const note = { description: input.value, status: false };
-            data.push(note);
-            drawNote(note);
-            
+            drawNote(addNote(input.value, index));
+
             input.value = '';
+            index++;
         }
     } 
 
@@ -27,10 +26,23 @@ input.addEventListener('keyup', e => {
 function drawNote(note) {
     let elem = document.createElement('p');
     elem.className = 'note';
+    elem.id = note.id;
     
-    if (!note.status) {
-        elem.innerHTML = `<input type="checkbox" id="sel"> ${note.description}`;
+    if (!note.checked) {
+        elem.innerHTML = `<input type="checkbox" id="sel" class="sel"> ${note.description} <span class="flag">x</span>`;
     }
 
     container.append(elem);
+}
+
+function addNote(value, index) {
+    const note = { 
+        description: value, 
+        checked: false,
+        id: index
+    };
+
+    data.push(note);
+
+    return data[data.length - 1];
 }
